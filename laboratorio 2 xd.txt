@@ -1,0 +1,35 @@
+private void btnCalcular_Click(object sender, EventArgs e)
+        {
+            if (rbPentagono.Checked)
+            {
+                if (double.TryParse(txtPerimetroPentagono.Text, out double perimetro))
+                {
+                    double lado = perimetro / 5;
+                    double apotema = lado / (2 * 0.7265); // Tangente de 54 grados
+                    double area = (5 * lado * apotema) / 2;
+                    MessageBox.Show($"El área del pentágono es: {area:F2} unidades cuadradas");
+                }
+                else
+                {
+                    MessageBox.Show("Ingrese un valor válido para el perímetro del pentágono");
+                }
+            }
+            else if (rbCirculo.Checked)
+            {
+                if (double.TryParse(txtRadioCirculo.Text, out double radio))
+                {
+                    double area = 3.14159 * radio * radio;
+                    MessageBox.Show($"El área del círculo es: {area:F2} unidades cuadradas");
+                }
+                else
+                {
+                    MessageBox.Show("Ingrese un valor válido para el radio del círculo");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleccione una opción: pentágono o círculo");
+            }
+        }
+    }
+}
